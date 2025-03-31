@@ -1,0 +1,20 @@
+app:
+  name: everything-template
+  port: 8080
+  env: dev
+redis:
+  addr: localhost
+  port: 6379
+  password: ""
+  db: 0
+  poolSize: 20
+  maxIdleConn: 30
+  minIdleConn: 10
+  maxIdleTime: 30   # minutes
+  maxLifeTime: 60   # seconds
+postgres:
+  addr: localhost
+  port: 5432
+  user: pgsql
+  password: pgsql
+  dbname: everything
