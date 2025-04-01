@@ -1,7 +1,7 @@
 package vars
 
 import (
-	"everything-template/internal/vars/config"
+	"everything-template/pkg/config"
 	"github.com/redis/go-redis/v9"
 	"gorm.io/gorm"
 	"path"
@@ -10,7 +10,7 @@ import (
 
 var (
 	BasePath string
-	Config   *config.Config
+	Config   config.Config
 	Redis    *redis.Client
 	DB       *gorm.DB
 )

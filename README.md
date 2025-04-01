@@ -1,1 +1,1 @@
-A template project
+A go web template project

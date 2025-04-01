@@ -18,3 +18,7 @@ postgres:
   user: pgsql
   password: pgsql
   dbname: everything
+auth:
+  tokenExpiry: 24 # hours
+  cookieMaxAge: 86400 # seconds
+  secretKey: YqwyRPKoQAIuGRMkc2pMr6qXu62du5y7

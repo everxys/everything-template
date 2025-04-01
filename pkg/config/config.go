@@ -8,6 +8,7 @@ type Config struct {
 	App      AppConfig      `yaml:"app" json:"app"`
 	Redis    RedisConfig    `yaml:"redis" json:"redis"`
 	Postgres PostgresConfig `yaml:"postgres" json:"postgres"`
+	Auth     AuthConfig     `yaml:"auth" json:"auth"`
 }
 
 type AppConfig struct {
@@ -34,4 +35,10 @@ type PostgresConfig struct {
 	User     string `yaml:"user" json:"user"`
 	Password string `yaml:"password" json:"password"`
 	Dbname   string `yaml:"dbname" json:"dbname"`
+}
+
+type AuthConfig struct {
+	TokenExpiry  time.Duration `yaml:"tokenExpiry" json:"tokenExpiry"`
+	CookieMaxAge int           `yaml:"cookieMaxAge" json:"cookieMaxAge"`
+	SecretKey    string        `yaml:"secretKey" json:"secretKey"`
 }

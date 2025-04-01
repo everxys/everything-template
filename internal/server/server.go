@@ -1,21 +1,22 @@
 package server
 
 import (
+	"everything-template/internal/middleware"
 	"everything-template/internal/vars"
+	"everything-template/pkg/logger"
 	"fmt"
 	"github.com/gin-gonic/gin"
-	"log"
 )
 
 func Run() {
 	r := gin.Default()
 
-	RegisterRoutes(r)
+	RegisterRoutes(r, middleware.AuthMiddleware())
 
 	addr := fmt.Sprintf(":%d", vars.Config.App.Port)
-	log.Printf("Starting server on %s with env %s", addr, vars.Config.App.Env)
+	logger.Infow(fmt.Sprintf("Starting server on %s with env %s", addr, vars.Config.App.Env))
 
 	if err := r.Run(addr); err != nil {
-		log.Fatalf("Failed to start server: %v", err)
+		panic(fmt.Sprintf("Failed to start server: %v", err))
 	}
 }
