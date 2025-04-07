@@ -42,3 +42,7 @@ help:
 	@echo "5. make lint - [gofumpt -l -w .]"
 	@echo "6. make generate - [go generate -x]"
 	@echo "7. make clean - [remove releases files and cached files]"
+
+.PHONY: test
+test:
+	go test ./test...
