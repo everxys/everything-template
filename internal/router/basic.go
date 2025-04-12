@@ -1,4 +1,4 @@
-package basic
+package router
 
 import (
 	"net/http"
@@ -6,7 +6,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func Register(r *gin.Engine) {
+func RegisterBasic(r *gin.Engine) {
 	router := r.Group("/")
 	{
 		router.GET("/hello", func(c *gin.Context) {
