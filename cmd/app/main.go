@@ -1,8 +1,9 @@
 package main
 
 import (
-	"everything-template/internal/bootstrap"
 	"flag"
+
+	"everything-template/internal/bootstrap"
 )
 
 func main() {

@@ -6,7 +6,6 @@ import (
 )
 
 func Run(env string) {
-
 	boots.InitConfig(env)
 	boots.InitPostgres()
 	boots.InitRedis()

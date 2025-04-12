@@ -2,8 +2,10 @@ package config
 
 import (
 	"bytes"
-	"everything-template/configs"
 	"fmt"
+
+	"everything-template/configs"
+
 	"github.com/spf13/viper"
 )
 

@@ -1,13 +1,14 @@
 package middleware
 
 import (
+	"strings"
+	"time"
+
 	"everything-template/internal/vars"
 	"everything-template/pkg/logger"
 	"everything-template/pkg/response"
 	"github.com/gin-gonic/gin"
 	"github.com/golang-jwt/jwt/v5"
-	"strings"
-	"time"
 )
 
 func AuthMiddleware() gin.HandlerFunc {

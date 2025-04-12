@@ -1,9 +1,10 @@
 package boots
 
 import (
-	"everything-template/internal/vars"
 	"fmt"
 	"log"
+
+	"everything-template/internal/vars"
 
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"

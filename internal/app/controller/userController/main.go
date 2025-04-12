@@ -1,15 +1,17 @@
 package userController
 
 import (
+	"fmt"
+	"strconv"
+	"time"
+
 	"everything-template/internal/app/entity"
 	"everything-template/internal/vars"
 	"everything-template/pkg/logger"
 	"everything-template/pkg/response"
-	"fmt"
+
 	"github.com/gin-gonic/gin"
 	"github.com/golang-jwt/jwt/v5"
-	"strconv"
-	"time"
 )
 
 func User(c *gin.Context) {
@@ -35,7 +37,6 @@ func User(c *gin.Context) {
 		}
 		return []byte(vars.Config.Auth.SecretKey), nil
 	})
-
 	if err != nil {
 		response.UnauthorizedException(c, "Unauthorized: "+err.Error())
 		return

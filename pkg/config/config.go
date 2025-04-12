@@ -19,7 +19,7 @@ type AppConfig struct {
 
 type RedisConfig struct {
 	Addr        string        `yaml:"addr" json:"addr"`
-	Port        int           `yaml:"port" json:"port"`
+	Port        string        `yaml:"port" json:"port"`
 	Password    string        `yaml:"password" json:"password"`
 	DB          int           `yaml:"db" json:"db"`
 	PoolSize    int           `yaml:"poolSize" json:"poolSize"`

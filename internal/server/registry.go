@@ -3,6 +3,7 @@ package server
 import (
 	"everything-template/internal/router/auth"
 	"everything-template/internal/router/basic"
+	"everything-template/internal/router/test"
 	"everything-template/internal/router/user"
 	"github.com/gin-gonic/gin"
 )
@@ -10,5 +11,6 @@ import (
 func RegisterRoutes(r *gin.Engine, middleware ...gin.HandlerFunc) {
 	basic.Register(r)
 	auth.Register(r)
+	test.Register(r)
 	user.Register(r, middleware...)
 }

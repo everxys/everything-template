@@ -1,12 +1,13 @@
 package authcontroller
 
 import (
+	"strconv"
+	"time"
+
 	"everything-template/internal/app/entity"
 	"everything-template/internal/vars"
 	"everything-template/pkg/logger"
 	"everything-template/pkg/response"
-	"strconv"
-	"time"
 
 	"github.com/gin-gonic/gin"
 	"github.com/golang-jwt/jwt/v5"

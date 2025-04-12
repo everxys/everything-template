@@ -1,10 +1,12 @@
 package server
 
 import (
+	"fmt"
+
 	"everything-template/internal/middleware"
 	"everything-template/internal/vars"
 	"everything-template/pkg/logger"
-	"fmt"
+
 	"github.com/gin-gonic/gin"
 )
 

@@ -1,17 +1,20 @@
 package vars
 
 import (
-	"everything-template/pkg/config"
-	"github.com/redis/go-redis/v9"
-	"gorm.io/gorm"
 	"path"
 	"runtime"
+
+	"everything-template/pkg/config"
+	"github.com/go-redsync/redsync/v4"
+	"github.com/redis/go-redis/v9"
+	"gorm.io/gorm"
 )
 
 var (
 	BasePath string
 	Config   config.Config
 	Redis    *redis.Client
+	Lock     *redsync.Redsync
 	DB       *gorm.DB
 )
 

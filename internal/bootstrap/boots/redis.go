@@ -1,16 +1,21 @@
 package boots
 
 import (
-	"everything-template/internal/vars"
+	"context"
 	"fmt"
 	"time"
 
+	"everything-template/internal/vars"
+	"everything-template/pkg/util"
+
+	"github.com/go-redsync/redsync/v4"
+	"github.com/go-redsync/redsync/v4/redis/goredis/v9"
 	"github.com/redis/go-redis/v9"
 )
 
 func InitRedis() {
-	vars.Redis = redis.NewClient(&redis.Options{
-		Addr:            fmt.Sprintf("%s:%s", vars.Config.Redis.Addr, vars.Config.Redis.Port),
+	client := redis.NewClient(&redis.Options{
+		Addr:            util.NewFluentBuilder().WriteString(vars.Config.Redis.Addr).WriteString(":").WriteString(vars.Config.Redis.Port).String(),
 		Password:        vars.Config.Redis.Password,
 		DB:              vars.Config.Redis.DB,
 		PoolSize:        vars.Config.Redis.PoolSize,
@@ -19,4 +24,14 @@ func InitRedis() {
 		ConnMaxLifetime: vars.Config.Redis.MaxLifeTime * time.Second,
 		ConnMaxIdleTime: vars.Config.Redis.MaxIdleTime * time.Minute,
 	})
+
+	if err := client.Ping(context.Background()).Err(); err != nil {
+		panic(fmt.Sprintf("Redis connection failed: %v", err))
+	}
+
+	pool := goredis.NewPool(client)
+	rs := redsync.New(pool)
+
+	vars.Redis = client
+	vars.Lock = rs
 }
