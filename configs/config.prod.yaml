@@ -2,6 +2,7 @@ app:
   name: everything-template
   port: 8080
   env: prod
+  gracefulTimeout: 5 # seconds
 redis:
   addr: localhost
   port: 6379

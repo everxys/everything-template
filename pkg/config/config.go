@@ -12,9 +12,10 @@ type Config struct {
 }
 
 type AppConfig struct {
-	Name string `yaml:"name" json:"name"`
-	Port int    `yaml:"port" json:"port"`
-	Env  string `yaml:"env" json:"env"`
+	Name            string `yaml:"name" json:"name"`
+	Port            int    `yaml:"port" json:"port"`
+	Env             string `yaml:"env" json:"env"`
+	GracefulTimeout int    `yaml:"gracefulTimeout" json:"gracefulTimeout"`
 }
 
 type RedisConfig struct {
