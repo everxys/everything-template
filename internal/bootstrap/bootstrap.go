@@ -9,6 +9,7 @@ func Run(env string) {
 	boots.InitConfig(env)
 	boots.InitPostgres()
 	boots.InitRedis()
+	boots.InitPprof()
 
 	server.Run()
 }

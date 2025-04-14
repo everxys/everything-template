@@ -9,6 +9,7 @@ type Config struct {
 	Redis    RedisConfig    `yaml:"redis" json:"redis"`
 	Postgres PostgresConfig `yaml:"postgres" json:"postgres"`
 	Auth     AuthConfig     `yaml:"auth" json:"auth"`
+	Pprof    PprofConfig    `yaml:"pprof" json:"pprof"`
 }
 
 type AppConfig struct {
@@ -42,4 +43,10 @@ type AuthConfig struct {
 	TokenExpiry  time.Duration `yaml:"tokenExpiry" json:"tokenExpiry"`
 	CookieMaxAge int           `yaml:"cookieMaxAge" json:"cookieMaxAge"`
 	SecretKey    string        `yaml:"secretKey" json:"secretKey"`
+}
+
+type PprofConfig struct {
+	Enabled bool   `yaml:"enabled" json:"enabled"`
+	Host    string `yaml:"host" json:"host"`
+	Port    string `yaml:"port" json:"port"`
 }
